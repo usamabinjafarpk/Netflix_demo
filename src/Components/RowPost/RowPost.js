@@ -8,14 +8,13 @@ function RowPost(props) {
     const [urlId, setUrlId] = useState('')
     useEffect(() => {
         axios.get(props.url).then(response=>{
-            console.log(response.data)
             setMovies(response.data.results)
            
         }).catch(error=>{
             console.log("Network error")
         })
         
-    }, [])
+    }, [props.url])
 
     const opts = {
         height: '390',
